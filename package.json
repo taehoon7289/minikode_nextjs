@@ -5,8 +5,13 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "export": "next export",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "build_and_export": "next build && next export",
+    "deploy": "aws s3 sync ./out s3://minikode-nextjs-deploy-zone --profile=minikode-nextjs-deploy",
+    "invalidate_www": "aws cloudfront create-invalidation --profile=minikode-nextjs-deploy --distribution-id EK8RSR0U2KKA1 --paths / /",
+    "invalidate_apex": "aws cloudfront create-invalidation --profile=minikode-nextjs-deploy --distribution-id E3O3M6KKGHR521 --paths / /"
   },
   "dependencies": {
     "@types/node": "18.11.9",

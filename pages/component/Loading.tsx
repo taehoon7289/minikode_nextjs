@@ -5,11 +5,9 @@ export default function Loading() {
   const [noShowFlag, setNoShowFlag] = useState(true);
 
   useEffect(() => {
-    return () => {
-      setTimeout(() => {
-        setNoShowFlag(false)
-      }, 3000)
-    };
+    setTimeout(() => {
+      setNoShowFlag(false)
+    }, 3000)
   }, []);
 
   return (

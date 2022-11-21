@@ -1,4 +1,5 @@
 import Head from 'next/head'
+import Loading from "./component/Loading";
 
 export default function Home() {
   return (
@@ -13,7 +14,8 @@ export default function Home() {
         </Head>
 
         <main className={'main'}>
-          <img src={'/img_main.png'} alt={'메인이미지'} width={'100%'}/>
+          <Loading/>
+          <img src={'/img/img_main.png'} alt={'메인이미지'} width={'100%'}/>
         </main>
       </div>
   )

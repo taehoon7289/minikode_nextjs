@@ -1,0 +1,129 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 10px;
+}
+
+
+
+.loading {
+  position: fixed;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100vw;
+  height: 100vh;
+  background: #111;
+  z-index: 1;
+}
+
+.container {
+  position: relative;
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+
+  & .ring {
+    position: relative;
+    width: 15rem;
+    height: 15rem;
+    border-radius: 50%;
+    margin: -3rem;
+    border: 0.4rem solid transparent;
+    border-top: 0.4rem solid #24ecff;
+    animation: animate 2s linear infinite;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 1.2rem;
+      right: 1.2rem;
+      border-radius: 50%;
+      width: 1.5rem;
+      height: 1.5rem;
+      background: #24ecff;
+      box-shadow: 0 0 0 0.5rem #24ecff33,
+      0 0 0 1rem #24ecff22,
+      0 0 0 2rem #24ecff11,
+      0 0 2rem #24ecff,
+      0 0 5rem #24ecff;
+
+
+    }
+
+    &:nth-child(2) {
+      border-top: 0.4rem solid transparent;
+      border-left: 0.4rem solid #93ff2d;
+      animation: animate2 2s linear infinite;
+      &::before {
+        top: inherit;
+        bottom: 1.2rem;
+        left: 1.2rem;
+        background: #93ff2d;
+        box-shadow: 0 0 0 0.5rem #93ff2d33,
+        0 0 0 1rem #93ff2d22,
+        0 0 0 2rem #93ff2d11,
+        0 0 2rem #93ff2d,
+        0 0 5rem #93ff2d;
+      }
+    }
+
+    &:nth-child(3) {
+      animation: animate2 2s linear infinite;
+      animation-delay: -1s;
+      position: absolute;
+      top: -6.66rem;
+      border-top: .4rem solid #e11cf8;
+      &::before {
+        top: 1.2rem;
+        bottom: 1.2rem;
+        left: 1.2rem;
+        background: #e11cf8;
+        box-shadow: 0 0 0 0.5rem #e11cf833,
+        0 0 0 1rem #e11cf822,
+        0 0 0 2rem #e11cf811,
+        0 0 2rem #e11cf8,
+        0 0 5rem #e11cf8;
+      }
+    }
+
+  }
+
+  & p {
+    position: absolute;
+    color: #fff;
+    font-size: 1.5rem;
+    font-family: Consolas;
+    bottom: -8rem;
+    letter-spacing: 0.015rem;
+  }
+
+}
+
+
+@keyframes animate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes animate2 {
+  0% {
+    transform: rotate(360deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
+}
+
+.no-show {
+  display: none;
+}
